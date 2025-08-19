@@ -38,6 +38,7 @@ function Playlist({ token }) {
     return (
         <div className = "PlaylistContainer">
             <h2>Your Playlists</h2>
+            <div className="PlaylistList">
             <ul>
                 {playlists.map((playlist) => (
                     <li className = "PlaylistItem" key={playlist.id}>
@@ -53,6 +54,7 @@ function Playlist({ token }) {
                     </li>
                 ))}
             </ul>
+            </div>
         </div>
     );
 }

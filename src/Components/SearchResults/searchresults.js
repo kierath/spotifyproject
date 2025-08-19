@@ -4,6 +4,7 @@ import './searchresults.css';
 
 function SearchResults({ results }) {
   return (
+    <div className="SearchResultsWrapper">
     <ul>
       {results.map(artist => (
         <li className="artistItem" key={artist.id}>
@@ -14,6 +15,7 @@ function SearchResults({ results }) {
         </li>
       ))}
     </ul>
+    </div>
   );
 }
 
