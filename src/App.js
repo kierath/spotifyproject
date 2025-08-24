@@ -20,6 +20,7 @@ function App() {
   useEffect(() => {
     const hash = window.location.hash;
     const tokenFromHash = hash.match(/access_token=([^&]*)/)?.[1];
+    console.log("Client ID:", client_id, "Redirect URI:", redirect_url);
 
     if (tokenFromHash) {
       setToken(tokenFromHash);
@@ -39,6 +40,7 @@ function App() {
       scope
     )}&show_dialog=true`;
     return (
+      
       <div className="spotify-app" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <h1>Jamming</h1>
         <h2>Jam to your favourites - log in with Spotify, search any artist, and remix your playlists.</h2>
@@ -78,7 +80,7 @@ function App() {
           body: JSON.stringify({ uris: [track.uri] }),
         })
           .then((res) => res.json())
-          .then(() => setPlaylistTracks((prev) => [...prev, { track }]))
+          .then(() => setPlaylistTracks((prev) => [...prev, track ]))
           .catch(console.error);
       }}
     />
