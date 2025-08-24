@@ -1,7 +1,6 @@
 .PlaylistContainer {
   display: flex;
-  height: 100vh; /* full height */
-  width: 80vw; /* full width */
+  height: 100vh;
   background-color: #121212;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

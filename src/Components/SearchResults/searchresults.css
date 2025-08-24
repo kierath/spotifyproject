@@ -1,62 +1,101 @@
-.SearchResultsList {
-  width: 80vw;
-  margin-bottom: 20px;
-  padding: 0 16px;
+/* Container for the entire search column */
+.SearchResultsWrapper {
+  flex: 1;                      /* equal width with playlist */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;                 /* full viewport height */
   box-sizing: border-box;
-  max-height: 450px;
+  background-color: #121212;
+  border-left: 2px solid #1DB954;
+  padding: 10px;
+  min-width: 300px;
+}
+
+/* Scrollable results area */
+.SearchResultsList {
+  flex: 1;                       /* fills remaining height */
   overflow-y: auto;
-  overflow-x: hidden;
-  background-color: black;
+  background-color: #181818;
+  padding: 12px;
+  border-radius: 6px;
 }
 
-.SearchResultsList ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  border: 2px solid blue;
-}
-
-.SearchResultsWrapper::-webkit-scrollbar {
+/* Scrollbar */
+.SearchResultsList::-webkit-scrollbar {
   width: 10px;
 }
-
-.SearchResultsWrapper::-webkit-scrollbar-thumb {
-  background-color: #1DB954; /* Spotify green */
+.SearchResultsList::-webkit-scrollbar-thumb {
+  background-color: #1DB954;
   border-radius: 5px;
 }
-.SearchResultsWrapper::-webkit-scrollbar-track {
-  background-color: #121212; /* Dark background to match your list */
+.SearchResultsList::-webkit-scrollbar-track {
+  background-color: #121212;
 }
 
+/* Individual song item */
 .songItem {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background: #121212;
-  border-left: 6px solid #1DB954;
-  padding: 14px 18px;
-  margin-bottom: 14px;
-  border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(29, 185, 84, 0.4);
-  cursor: pointer;
-  transition: background-color 0.5s ease, transform 0.4s ease;
-  color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  max-height: 30px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .songItem:hover {
   background: #1DB954;
   color: #121212;
-  transform: scale(1.04);
-  box-shadow: 0 6px 12px rgba(29, 185, 84, 0.7);
+  transform: scale(1.02);
 }
 
 .songItem img {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  margin-right: 16px;
-  box-shadow: 0 2px 6px rgba(29, 185, 84, 0.6);
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  margin-right: 12px;
   object-fit: cover;
+}
+
+.songInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.songInfo strong {
+  font-size: 0.95rem;
+}
+.songInfo span {
+  font-size: 0.8rem;
+  color: #bbb;
+  margin-top: 2px;
+}
+
+.songInfo audio {
+  margin-top: 6px;
+  width: 100%;
+}
+
+/* Add button */
+.AddTrackBtn {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  margin-left: 12px;
+  background-color: #1DB954;
+  color: white;
+  border: none;
+  border-radius: 50%;  
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AddTrackBtn:hover {
+  background-color: #1ed760;
 }

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './playlist.css';
 import TrackList from '../Tracklist/tracklist';
+import SearchResults from '../SearchResults/searchresults';
+import SearchBarContainer from '../SearchBar/searchbar';
 
 function Playlist({ token, userId, selectedPlaylist, setSelectedPlaylist, playlistTracks, setPlaylistTracks }) {
   const [playlists, setPlaylists] = useState([]);
@@ -106,6 +108,8 @@ function Playlist({ token, userId, selectedPlaylist, setSelectedPlaylist, playli
         )}
       </div>
     </div>
+
+
   );
 }
 
