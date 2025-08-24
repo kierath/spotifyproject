@@ -3,7 +3,7 @@
   flex: 1;                      /* equal width with playlist */
   display: flex;
   flex-direction: column;
-  height: 100vh;                 /* full viewport height */
+  height: 500px;                 /* full viewport height */
   box-sizing: border-box;
   background-color: #121212;
   border-left: 2px solid #1DB954;
