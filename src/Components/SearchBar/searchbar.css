@@ -1,14 +1,13 @@
 .SearchBarContainer {
   max-width: 720px;
-  margin: 0 auto;          /* Centers horizontally */
-  padding: 10px 10px;      /* Fixed px unit */
+  margin: 0 auto;
+  padding: 0 10px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   flex-direction: column;
-  width: 100%;             /* Let it shrink/grow inside parent */
 }
 
 .SearchBarContainer input {
@@ -32,12 +31,4 @@
   cursor: pointer;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.0rem;
-}
-
-.SearchControls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
 }

@@ -1,0 +1,14 @@
+.TrackList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.NoTracks {
+  color: #b3b3b3;
+  font-style: italic;
+}
+

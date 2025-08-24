@@ -1,62 +1,112 @@
 import React, { useEffect, useState } from 'react';
-import './playlist.css'; 
+import './playlist.css';
+import TrackList from '../Tracklist/tracklist';
 
-function Playlist({ token }) {
-    const [playlists, setPlaylists] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+function Playlist({ token, userId, selectedPlaylist, setSelectedPlaylist, playlistTracks, setPlaylistTracks }) {
+  const [playlists, setPlaylists] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [newPlaylistName, setNewPlaylistName] = useState('');
 
-    useEffect(() => {
-        if (!token) return;
+  useEffect(() => {
+    if (!token) return;
 
-        fetch('https://api.spotify.com/v1/me/playlists', {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        })
-            .then((res) => {
-                if (!res.ok) throw new Error('Failed to fetch playlists');
-                return res.json();
-            })
-            .then((data) => {
-                setPlaylists(data.items);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setError(err.message);
-                setLoading(false);
-            });
-    }, [token]);
+    const fetchData = async () => {
+      try {
+        const res = await fetch('https://api.spotify.com/v1/me/playlists', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const data = await res.json();
+        setPlaylists(data.items);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    if (loading) {
-        return <p>Loading playlists...</p>;
+    fetchData();
+  }, [token]);
+
+  const handleCreatePlaylist = async () => {
+    if (!newPlaylistName.trim()) return;
+
+    const res = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ name: newPlaylistName, description: 'Created via React App', public: true }),
+    });
+    const newPlaylist = await res.json();
+    setPlaylists((prev) => [newPlaylist, ...prev]);
+    setNewPlaylistName('');
+  };
+
+  const handleSelectPlaylist = async (playlist) => {
+    setSelectedPlaylist(playlist);
+    try {
+      const res = await fetch(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      setPlaylistTracks(data.items);
+    } catch {
+      setPlaylistTracks([]);
     }
-    if (error) {
-        return <p>Error: {error}</p>;
-    }
+  };
 
-    return (
-        <div className = "PlaylistContainer">
-            <h2>Your Playlists</h2>
-            <div className="PlaylistList">
-            <ul>
-                {playlists.map((playlist) => (
-                    <li className = "PlaylistItem" key={playlist.id}>
-                        {playlist.images[0] && (
-                            <img
-                                src={playlist.images[0].url}
-                                alt={playlist.name}
-                            />
-                        )}
-                        <div>
-                            <strong>{playlist.name}</strong> ({playlist.tracks.total} tracks)
-                        </div>
-                    </li>
-                ))}
-            </ul>
-            </div>
+  const handleRemoveTrack = async (trackUri) => {
+    if (!selectedPlaylist) return;
+
+    await fetch(`https://api.spotify.com/v1/playlists/${selectedPlaylist.id}/tracks`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ tracks: [{ uri: trackUri }] }),
+    });
+
+    setPlaylistTracks((prev) => prev.filter((item) => item.track.uri !== trackUri));
+  };
+
+  if (loading) return <p>Loading playlists...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  return (
+    <div className="PlaylistContainer">
+      <div className="Sidebar">
+        <h2>Your Playlists</h2>
+        <div className="create-playlist">
+          <input type="text" placeholder="Enter Playlist Name" value={newPlaylistName} onChange={(e) => setNewPlaylistName(e.target.value)} />
+          <button onClick={handleCreatePlaylist} disabled={!newPlaylistName.trim()}>Create New Playlist</button>
         </div>
-    );
+        <div className="PlaylistList">
+          {playlists.map((playlist) => (
+            <div key={playlist.id} className="PlaylistItem" onClick={() => handleSelectPlaylist(playlist)}>
+              {playlist.images?.[0]?.url && <img src={playlist.images[0].url} alt={playlist.name} />}
+              <div>
+                <strong>{playlist.name}</strong> ({playlist.tracks.total} tracks)
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="TracksContainer">
+        {selectedPlaylist ? (
+          <>
+            <h3>{selectedPlaylist.name} - Tracks</h3>
+            <TrackList tracks={playlistTracks} onRemove={handleRemoveTrack} />
+          </>
+        ) : (
+          <p>Select a playlist to view its tracks</p>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default Playlist;

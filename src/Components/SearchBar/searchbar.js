@@ -1,51 +1,44 @@
-// src/Components/SearchBar/SearchBar.js
+// src/Components/SearchBar/searchbar.js
 import React, { useState } from 'react';
-import './searchbar.css';
 import SearchResults from '../SearchResults/searchresults';
+import './searchbar.css';
 
-function SearchBar({ token }) {
+function SearchBar({ token, onAdd }) {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
 
-const search = () => {
-  if (!query) {
-    alert('Please enter an artist to search.');
-    setResults([]); // Clear previous results
-    return;
-  }
-
-  fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=artist`, {
-    headers: { Authorization: `Bearer ${token}` },
-  })
-    .then(res => res.json())
-    .then(data => {
-      setResults(data.artists?.items || []); // optional chaining avoids errors
-      if (!data.artists?.items?.length) {
-        alert('No artists found for your search.');
-      }
-    })
-    .catch(err => {
-      console.error('Search error:', err);
-      alert('Something went wrong. Please try again.');
+  const search = async () => {
+    if (!query.trim()) {
+      alert('Please enter a song to search.');
       setResults([]);
-    });
-};
+      return;
+    }
 
+    try {
+      const res = await fetch(
+        `https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=10`,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      const data = await res.json();
+      setResults(data.tracks?.items || []);
+    } catch (err) {
+      console.error(err);
+      setResults([]);
+    }
+  };
 
   return (
     <div className="SearchBarContainer">
       <div className="SearchControls">
         <input
           type="text"
-          placeholder="Search an artist..."
+          placeholder="Search a song..."
           value={query}
-          onChange={e => setQuery(e.target.value)}
-       />
-      <button onClick={search}>Search</button>
-    </div>
-    <div className= "SearchResultsContainer">
-      <SearchResults results={results} />
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button onClick={search}>Search</button>
       </div>
+      <SearchResults results={results} onAdd={onAdd} />
     </div>
   );
 }

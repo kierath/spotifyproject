@@ -1,65 +1,88 @@
-// src/App.js
 import React, { useEffect, useState } from 'react';
 import Playlist from './Components/Playlist/playlist';
-import './App.css';
 import SearchBar from './Components/SearchBar/searchbar';
-import backgroundImage from '../src/Images/background.jpeg'
+import './App.css';
+import backgroundImage from './Images/background.jpeg';
 
 const client_id = 'a6410a836d3b4d479eace712db9bea04';
 const redirect_url = 'http://localhost:3000/';
 const auth_endpoint = 'https://accounts.spotify.com/authorize';
 const response_type = 'token';
-
+const scope =
+  'user-read-private playlist-modify-private playlist-modify-public playlist-read-collaborative playlist-read-private';
 
 function App() {
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);
-  const [showPlaylist, setShowPlaylist] = useState(false);
+  const [selectedPlaylist, setSelectedPlaylist] = useState(null);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
 
-  //Token and user ID are set when the component mounts
   useEffect(() => {
     const hash = window.location.hash;
-    const token = hash.match(/access_token=([^&]*)/)?.[1]; //if hash doesn't contain access_token or is "" then will be undefined
-    if (token) {
-      setToken(token);
+    const tokenFromHash = hash.match(/access_token=([^&]*)/)?.[1];
+
+    if (tokenFromHash) {
+      setToken(tokenFromHash);
       window.location.hash = '';
-      //get the user profile to get user ID
+
       fetch('https://api.spotify.com/v1/me', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }).then((res) => res.json())
+        headers: { Authorization: `Bearer ${tokenFromHash}` },
+      })
+        .then((res) => res.json())
         .then((data) => setUserId(data.id))
-        .catch((err) => console.error('Failed to fetch user profile:', err));
+        .catch(console.error);
     }
   }, []);
 
-  const loginUrl = `${auth_endpoint}?client_id=${client_id}&redirect_uri=${redirect_url}&response_type=${response_type}&show_dialog=true`;
-
-  return (
-    <div className="spotify-app" style={{backgroundImage: `url(${backgroundImage})`}}>
-      <h1>Jamming</h1>
-      <h2>Jam to your favourites - log in with Spotify, search any artist, and remix your playlists your way.</h2>
-      {!token ? (
+  if (!token) {
+    const loginUrl = `${auth_endpoint}?client_id=${client_id}&redirect_uri=${redirect_url}&response_type=${response_type}&scope=${encodeURIComponent(
+      scope
+    )}&show_dialog=true`;
+    return (
+      <div className="spotify-app" style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <h1>Jamming</h1>
+        <h2>Jam to your favourites - log in with Spotify, search any artist, and remix your playlists.</h2>
         <a href={loginUrl}>
           <button>Login to Spotify</button>
         </a>
-      ) : (
-        <>
-        <div className="spotify-body">
-        <div className="search-section">
-          <SearchBar token={token} />
-          </div>
-          <div className="playlist-section">
-          <button onClick={() => setShowPlaylist(prev => !prev)}>Check out your playlists</button>
-          </div>
-          {showPlaylist && <Playlist token={token} userId={userId} />}
-          </div>
-        </>
-      )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="spotify-app" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <h1>Jamming</h1>
+      <h2>Search songs and manage your playlists</h2>
+
+      {/* SearchBar on top */}
+      <div className="search-section">
+        <SearchBar token={token} onAdd={(track) => {
+          if (!selectedPlaylist) return alert('Please select a playlist first.');
+          fetch(`https://api.spotify.com/v1/playlists/${selectedPlaylist.id}/tracks`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ uris: [track.uri] }),
+          })
+            .then((res) => res.json())
+            .then(() => setPlaylistTracks((prev) => [...prev, { track }]))
+            .catch(console.error);
+        }} />
+      </div>
+
+      {/* Playlist container below */}
+      <Playlist
+        token={token}
+        userId={userId}
+        selectedPlaylist={selectedPlaylist}
+        setSelectedPlaylist={setSelectedPlaylist}
+        playlistTracks={playlistTracks}
+        setPlaylistTracks={setPlaylistTracks}
+      />
     </div>
   );
 }
-
 
 export default App;

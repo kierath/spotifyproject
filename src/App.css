@@ -1,15 +1,17 @@
-.spotify-app{
+.spotify-app {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   background-size: auto;
   background-position: center;
   background-repeat: repeat;
   min-height: 100vh;
   width: 100vw;
-  padding-top: 300px;
-  padding-bottom: 200px;
+  padding-top: 20vh;   /* relative to viewport height */
+  padding-bottom: 15vh;
+  box-sizing: border-box; /* ensures padding doesn't increase width/height unexpectedly */
+  overflow-y: auto; /* allows scrolling if content exceeds container */
 }
 
 .spotify-app h1{
@@ -33,7 +35,7 @@ body {
 }
 
 .spotify-app button {
-  margin: 10px 0;
+  margin: 10px 10px;
   padding: 10px 20px;
   background-color: #1DB954;
   color: white;
@@ -41,11 +43,11 @@ body {
   border-radius: 4px;
   cursor: pointer;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .spotify-app button:hover {
-  background-color: #1ed760; /* brighter green */
+  background-color: #1ed760; 
   transform: scale(1.05);
 }
 

@@ -1,21 +1,37 @@
-// src/Components/SearchBar/SearchResults.js
+// src/Components/SearchResults/SearchResults.js
+import React from 'react';
 import './searchresults.css';
 
-
-function SearchResults({ results }) {
+function SearchResults({ results = [], onAdd }) {
   return (
-    <div className="SearchResultsWrapper">
-    <ul>
-      {results.map(artist => (
-        <li className="artistItem" key={artist.id}>
-          {artist.images[0] && (
-            <img src={artist.images[0].url} alt={artist.name} width="50" />
-          )}
-          {artist.name}
-        </li>
-      ))}
-    </ul>
-    </div>
+      <div className="SearchResultsWrapper">
+        {/* Scrollable results */}
+        <div className="SearchResultsList">
+          <ul>
+            {results.map((track) => (
+              <li key={track.id} className="songItem">
+                {track.album?.images?.[0]?.url && (
+                  <img src={track.album.images[0].url} alt={track.name} />
+                )}
+                <div className="SongInfo">
+                  <strong>{track.name}</strong> by{' '}
+                  {track.artists.map((a) => a.name).join(', ')}
+                  {track.preview_url && (
+                    <audio controls src={track.preview_url}></audio>
+                  )}
+                  <button
+                    onClick={() => onAdd(track)}
+                    className="AddTrackBtn"
+                  >
+                    Add
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
   );
 }
 
