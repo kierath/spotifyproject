@@ -1,6 +1,6 @@
 .PlaylistContainer {
   display: flex;
-  flex-direction: row;    /* ensure sidebar + tracks are horizontal */
+  flex-direction: column;    /* ensure sidebar + tracks are horizontal */
   flex: 1;                /* fill parent's height */
   height: 100%;           /* make it stretch */
   background-color: #121212;
@@ -89,6 +89,7 @@
   flex-direction: column;
   flex: 1;            /* fill available space in the main container */
   padding: 20px;
+  width: 100%;
   overflow-y: hidden; /* prevent double scroll */
   background-color: #181818;
 }

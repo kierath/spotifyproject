@@ -4,7 +4,7 @@
   justify-content: flex-start;
   align-items: stretch;
   width: 100%;
-  height: auto; /* Allows height to adjust based on content */
+ height: calc(100vh - 20vh);
   padding: 20px;
   gap: 20px;
   box-sizing: border-box;
@@ -16,7 +16,7 @@
   min-width: 300px;
   display: flex;
   flex-direction: column;
-  height: auto; /* Allows height to adjust based on content */
+  height: 100%; /* Allows height to adjust based on content */
 }
 
 
