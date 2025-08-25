@@ -7,6 +7,7 @@
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   flex-wrap: nowrap;
+  overflow-x: hidden;
 }
 
 /* Sidebar */
@@ -70,6 +71,7 @@
   flex-direction: column;
   gap: 10px;
   overflow-y: auto;
+  overflow-x: hidden;
   max-height: 100%;
 }
 
@@ -95,4 +97,20 @@
   height: 50px;
   border-radius: 4px;
   object-fit: cover;
+}
+
+.Sidebar::-webkit-scrollbar,
+.TracksContainer::-webkit-scrollbar{
+  width: 8px;
+}
+
+.Sidebar::-webkit-scrollbar-thumb,
+.TracksContainer::-webkit-scrollbar-thumb{
+  background-color: #1DB954;
+  border-radius: 5px;
+}
+
+.Sidebar::-webkit-scrollbar-track,
+.TracksContainer::-webkit-scrollbar-track{
+  background-color: #121212;
 }
