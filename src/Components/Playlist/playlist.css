@@ -93,6 +93,15 @@
   margin-bottom: 15px;
 }
 
+.create-playlist button {
+  font-size: 1rem !important;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.create-playlist input {
+  font-size: 1rem !important;
+}
+
 .PlaylistList::-webkit-scrollbar,
 .TracksContainer::-webkit-scrollbar{
   width: 8px;
