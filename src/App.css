@@ -1,18 +1,23 @@
+/* Main content container */
 .main-content {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: stretch;
+  align-items: stretch;   /* equal height columns */
   width: 100%;
+  height: 100vh;
   padding: 20px;
   gap: 20px;
   box-sizing: border-box;
-  flex-wrap: wrap; /* allows wrapping when small */
+  flex-wrap: wrap;        /* allows wrapping when small */
 }
 
 .main-content > * {
   flex: 1;
   min-width: 300px;
+  display: flex;
+  flex-direction: column; /* make children stack */
+  height: 100%;           /* fill parent's height */
 }
 
 /* 📱 Mobile: stack columns */
@@ -21,16 +26,17 @@
     flex-direction: column;
     padding: 10px;
     gap: 15px;
+    height: auto;          /* allow natural height */
   }
 
   .main-content > * {
     min-width: unset;
     width: 100%;
+    height: auto;          /* allow content to expand */
   }
 }
 
-
-
+/* Spotify app wrapper */
 .spotify-app {
   display: flex;
   flex-direction: column;
@@ -41,14 +47,14 @@
   background-repeat: repeat;
   min-height: 100vh;
   width: 100%;
-  padding-top: 10vh;           /* smaller padding so mobile fits */
+  padding-top: 10vh;       /* smaller padding for mobile */
   padding-bottom: 10vh;
   box-sizing: border-box;
   overflow-y: auto;
 }
 
 .spotify-app h1 {
-  font-size: 2.2rem;           /* smaller for mobile */
+  font-size: 2.2rem;       /* smaller for mobile */
   text-align: center;
   color: #1DB954;
   letter-spacing: 3px;
@@ -67,6 +73,7 @@ body {
   margin: 0;
 }
 
+/* Buttons */
 .spotify-app button {
   margin: 10px 10px;
   padding: 10px 20px;
@@ -83,6 +90,7 @@ body {
   transform: scale(1.05);
 }
 
+/* Playlist section */
 .playlist-section {
   margin: 0;
   display: flex;
@@ -90,6 +98,7 @@ body {
   align-items: center;
 }
 
+/* Search section column */
 .search-section {
   flex: 1;
   display: flex;
@@ -97,5 +106,14 @@ body {
   align-items: stretch;
   background-color: #121212;
   padding: 20px;
-  height: 100%; 
+  height: 100%;          /* fill column height */
+}
+
+/* Scrollable inner areas */
+.TracksContainer, 
+.SearchResultsWrapper {
+  flex: 1;               /* fill parent height */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;      /* scroll if content exceeds */
 }
