@@ -1,20 +1,20 @@
 .PlaylistContainer {
   display: flex;
-  height: 100%;
+  flex-direction: column;
+  flex: 1;
   background-color: #121212;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  flex-wrap: wrap; 
 }
 
 /* Sidebar for playlists */
 .Sidebar {
-  width: 100%;               /* full width on mobile */
+  width: 100%;               
   background-color: #121212;
   padding: 15px;
   display: flex;
   flex-direction: column;
-  border-bottom: 4px solid #1DB954;  /* use bottom border for mobile */
+  border-bottom: 4px solid #1DB954;
 }
 
 .Sidebar h2 {
@@ -49,13 +49,12 @@
 
 /* Playlist list */
 .PlaylistList {
+  flex: 1;                /* fill remaining space */
   display: flex;
   flex-direction: column;
   gap: 10px;
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 100vh;
-  box-sizing: border-box;
 }
 
 .PlaylistItem {
@@ -85,9 +84,9 @@
 .TracksContainer {
   display: flex;
   flex-direction: column;
-  flex: 1;            /* fill available space in the main container */
+  flex: 1;            /* fill available space */
   padding: 20px;
-  overflow-y: hidden; /* prevent double scroll */
+  overflow-y: auto;    /* scroll inside */
   background-color: #181818;
 }
 
@@ -113,9 +112,7 @@
   background-color: #121212;
 }
 
-
-
-/* 📱 On mobile: stack sidebar and tracks */
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .PlaylistContainer {
     flex-direction: column;
@@ -123,7 +120,6 @@
 
   .Sidebar {
     width: 100%;
-    border-right: none;
     border-bottom: 4px solid #1DB954;
   }
 
