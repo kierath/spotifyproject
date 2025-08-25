@@ -13,7 +13,7 @@
 
 /* Sidebar */
 .Sidebar {
-  width: 250px;
+  width: 400px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -91,18 +91,18 @@
   margin-bottom: 15px;
 }
 
-.Sidebar::-webkit-scrollbar,
+.PlaylistContainer::-webkit-scrollbar,
 .TracksContainer::-webkit-scrollbar{
   width: 8px;
 }
 
-.Sidebar::-webkit-scrollbar-thumb,
+.PlaylistContainer::-webkit-scrollbar-thumb,
 .TracksContainer::-webkit-scrollbar-thumb{
   background-color: #1DB954;
   border-radius: 5px;
 }
 
-.Sidebar::-webkit-scrollbar-track,
+.PlaylistContainer::-webkit-scrollbar-track,
 .TracksContainer::-webkit-scrollbar-track{
   background-color: #121212;
 }
