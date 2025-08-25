@@ -94,12 +94,20 @@
 }
 
 .create-playlist button {
-  font-size: 0.8rem !important;
+  font-size: 1.0rem !important;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .create-playlist input {
-  font-size: 0.8rem !important;
+  font-size: 1.0rem !important;
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #1DB954;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
 }
 
 .PlaylistList::-webkit-scrollbar,
