@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './playlist.css';
 import TrackList from '../Tracklist/tracklist';
-import SearchResults from '../SearchResults/searchresults';
-import SearchBarContainer from '../SearchBar/searchbar';
 
 function Playlist({ token, userId, selectedPlaylist, setSelectedPlaylist, playlistTracks, setPlaylistTracks }) {
   const [playlists, setPlaylists] = useState([]);
@@ -53,7 +51,8 @@ function Playlist({ token, userId, selectedPlaylist, setSelectedPlaylist, playli
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
-      setPlaylistTracks(data.items);
+      // store only track objects
+      setPlaylistTracks(data.items.map(item => item.track));
     } catch {
       setPlaylistTracks([]);
     }
@@ -71,7 +70,7 @@ function Playlist({ token, userId, selectedPlaylist, setSelectedPlaylist, playli
       body: JSON.stringify({ tracks: [{ uri: trackUri }] }),
     });
 
-    setPlaylistTracks((prev) => prev.filter((item) => item.track.uri !== trackUri));
+    setPlaylistTracks((prev) => prev.filter((track) => track.uri !== trackUri));
   };
 
   if (loading) return <p>Loading playlists...</p>;
@@ -108,8 +107,6 @@ function Playlist({ token, userId, selectedPlaylist, setSelectedPlaylist, playli
         )}
       </div>
     </div>
-
-
   );
 }
 

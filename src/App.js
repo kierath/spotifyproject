@@ -20,7 +20,6 @@ function App() {
   useEffect(() => {
     const hash = window.location.hash;
     const tokenFromHash = hash.match(/access_token=([^&]*)/)?.[1];
-    console.log("Client ID:", client_id, "Redirect URI:", redirect_url);
 
     if (tokenFromHash) {
       setToken(tokenFromHash);
@@ -40,7 +39,6 @@ function App() {
       scope
     )}&show_dialog=true`;
     return (
-      
       <div className="spotify-app" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <h1>Jamming</h1>
         <h2>Jam to your favourites - log in with Spotify, search any artist, and remix your playlists.</h2>
@@ -56,36 +54,36 @@ function App() {
       <h1>Jamming</h1>
       <h2>Search songs and manage your playlists</h2>
 
-<div className="main-content">
-  <Playlist
-    token={token}
-    userId={userId}
-    selectedPlaylist={selectedPlaylist}
-    setSelectedPlaylist={setSelectedPlaylist}
-    playlistTracks={playlistTracks}
-    setPlaylistTracks={setPlaylistTracks}
-  />
+      <div className="main-content">
+        <Playlist
+          token={token}
+          userId={userId}
+          selectedPlaylist={selectedPlaylist}
+          setSelectedPlaylist={setSelectedPlaylist}
+          playlistTracks={playlistTracks}
+          setPlaylistTracks={setPlaylistTracks}
+        />
 
-  <div className="search-section">
-    <SearchBar
-      token={token}
-      onAdd={(track) => {
-        if (!selectedPlaylist) return alert('Please select a playlist first.');
-        fetch(`https://api.spotify.com/v1/playlists/${selectedPlaylist.id}/tracks`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ uris: [track.uri] }),
-        })
-          .then((res) => res.json())
-          .then(() => setPlaylistTracks((prev) => [...prev, track ]))
-          .catch(console.error);
-      }}
-    />
-  </div>
-</div>
+        <div className="search-section">
+          <SearchBar
+            token={token}
+            onAdd={(track) => {
+              if (!selectedPlaylist) return alert('Please select a playlist first.');
+              fetch(`https://api.spotify.com/v1/playlists/${selectedPlaylist.id}/tracks`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({ uris: [track.uri] }),
+              })
+                .then((res) => res.json())
+                .then(() => setPlaylistTracks((prev) => [...prev, track])) // push track directly
+                .catch(console.error);
+            }}
+          />
+        </div>
+      </div>
     </div>
   );
 }

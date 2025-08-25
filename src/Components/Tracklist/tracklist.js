@@ -7,10 +7,8 @@ function TrackList({ tracks, onRemove }) {
 
   return (
     <ul className="TrackList">
-      {tracks.map((item, index) => (
-        <Track key={item.track?.id || index} 
-        track={item.track}
-        onRemove={onRemove} />
+      {tracks.map((track) => (
+        <Track key={track.id} track={track} onRemove={onRemove} />
       ))}
     </ul>
   );

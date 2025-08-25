@@ -14,15 +14,9 @@ function SearchResults({ results = [], onAdd }) {
               <div className="songInfo">
                 <strong>{track.name}</strong>
                 <span>{track.artists.map((a) => a.name).join(', ')}</span>
-                {track.preview_url && (
-                  <audio controls src={track.preview_url}></audio>
-                )}
+                {track.preview_url && <audio controls src={track.preview_url}></audio>}
               </div>
-              <button 
-              onClick={() => onAdd(track)} 
-              className="AddTrackBtn">
-                +
-              </button>
+              <button onClick={() => onAdd(track)} className="AddTrackBtn">+</button>
             </li>
           ))}
         </ul>
