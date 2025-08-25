@@ -93,7 +93,6 @@ body {
 /* Playlist section */
 .playlist-section {
   margin: 0;
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
