@@ -7,7 +7,7 @@
   padding: 20px;
   gap: 20px;
   box-sizing: border-box;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* allows wrapping when small */
 }
 
 .main-content > * {
@@ -24,10 +24,11 @@
   }
 
   .main-content > * {
-    min-width: unset; 
-    width: 100%;      
+    min-width: unset;
+    width: 100%;
   }
 }
+
 
 
 .spotify-app {

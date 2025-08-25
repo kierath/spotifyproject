@@ -61,32 +61,28 @@
   background-color: #1ed760;
 }
 
-/* 📱 Mobile adjustments */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .TrackItem {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 12px;
+    gap: 6px;
+    padding: 6px 8px;
   }
 
   .TrackItem img {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-    border-radius: 8px;
-  }
-
-  .TrackItem button {
-    align-self: flex-end;
-    margin-top: 6px;
+    width: 40px;
+    height: 40px;
   }
 
   .TrackInfo strong {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
   .TrackInfo span {
-    font-size: 0.85rem;
+    font-size: 0.7rem;
+  }
+
+  .TrackItem button {
+    font-size: 10px !important;
+    padding: 4px 6px;
   }
 }
+
