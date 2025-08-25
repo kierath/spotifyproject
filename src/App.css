@@ -75,6 +75,10 @@ body {
 .bottom-section {
   width: 100%;
   flex: 0;
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
 }
 
 /* Mobile adjustments */
