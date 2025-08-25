@@ -3,6 +3,7 @@ import SearchResults from '../SearchResults/searchresults';
 import './searchbar.css';
 
 function SearchBar({ token, onAdd }) {
+  // State for the search query and results
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
 
