@@ -46,14 +46,15 @@ body {
 }
 
 .spotify-app button:hover {
-  background-color: #1ed760; 
+  background-color: #1ed760;
   transform: scale(1.05);
 }
 
 /* Main content layout */
 .main-content {
   display: flex;
-  flex-direction: column; /* top = playlist, bottom = search */
+  flex-direction: column;
+  /* top = playlist, bottom = search */
   width: 100%;
   min-height: 100vh;
   gap: 20px;
@@ -64,7 +65,8 @@ body {
 /* Playlist + sidebar */
 .top-section {
   display: flex;
-  flex-direction: row; /* sidebar + tracks side by side */
+  flex-direction: row;
+  /* sidebar + tracks side by side */
   gap: 20px;
   width: 100%;
   flex: 1;
