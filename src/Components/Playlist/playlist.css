@@ -1,6 +1,6 @@
 .PlaylistContainer {
   display: flex;
-  flex-direction: column;    /* ensure sidebar + tracks are horizontal */
+  flex-direction: row;    /* ensure sidebar + tracks are horizontal */
   flex: 1;                /* fill parent's height */
   height: 100%;           /* make it stretch */
   background-color: #121212;
@@ -17,8 +17,8 @@
   display: flex;
   flex-direction: column;
   border-bottom: 4px solid #1DB954;  /* use bottom border for mobile */
-  min-width: 200px;
   flex-shrink: 0;
+  height: 100%;
 }
 
 .Sidebar h2 {
@@ -94,7 +94,7 @@
   width: 100vw;
   overflow-y: auto;
   background-color: #181818;
-  height: 400px;
+  height: auto;
 }
 
 .TracksContainer h3 {
