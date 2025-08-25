@@ -97,4 +97,5 @@ body {
   align-items: stretch;
   background-color: #121212;
   padding: 20px;
+  height: 100%; 
 }
