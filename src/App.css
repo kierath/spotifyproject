@@ -37,7 +37,7 @@
   background-size: auto;
   background-position: center;
   background-repeat: repeat;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   width: 100%;
   padding-top: 10vh;           /* smaller padding so mobile fits */
   padding-bottom: 10vh;
