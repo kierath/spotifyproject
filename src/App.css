@@ -1,42 +1,3 @@
-.main-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: stretch;
-  width: 100%;
-  min-height: 100vh;
-  padding: 20px;
-  gap: 20px;
-  box-sizing: border-box;
-  flex-wrap: nowrap; /* Prevents wrapping on larger screens */
-}
-
-.main-content > * {
-  flex: 1;
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
-  height: 100%; /* Allows height to adjust based on content */
-}
-
-
-/* 📱 Mobile: stack columns */
-@media (max-width: 768px) {
-  .main-content {
-    flex-direction: column;
-    padding: 10px;
-    gap: 15px;
-    height: auto;          /* allow natural height */
-  }
-
-  .main-content > * {
-    min-width: unset;
-    width: 100%;
-    height: auto;          /* allow content to expand */
-  }
-}
-
-/* Spotify app wrapper */
 .spotify-app {
   display: flex;
   flex-direction: column;
@@ -47,14 +8,14 @@
   background-repeat: repeat;
   min-height: 100vh;
   width: 100%;
-  padding-top: 10vh;       /* smaller padding for mobile */
+  padding-top: 10vh;
   padding-bottom: 10vh;
   box-sizing: border-box;
   overflow-y: auto;
 }
 
 .spotify-app h1 {
-  font-size: 2.2rem;       /* smaller for mobile */
+  font-size: 2.2rem;
   text-align: center;
   color: #1DB954;
   letter-spacing: 3px;
@@ -73,7 +34,6 @@ body {
   margin: 0;
 }
 
-/* Buttons */
 .spotify-app button {
   margin: 10px 10px;
   padding: 10px 20px;
@@ -90,32 +50,36 @@ body {
   transform: scale(1.05);
 }
 
-/* Playlist section */
-.playlist-section {
-  margin: 0;
+/* Main content layout */
+.main-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column; /* top = playlist, bottom = search */
+  width: 100%;
+  min-height: 100vh;
+  gap: 20px;
+  box-sizing: border-box;
+  padding: 20px;
 }
 
-/* Search section column */
-.search-section {
+/* Playlist + sidebar */
+.top-section {
+  display: flex;
+  flex-direction: row; /* sidebar + tracks side by side */
+  gap: 20px;
+  width: 100%;
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  background-color: #121212;
-  padding: 20px;
-  height: 100%;          /* fill column height */
+  min-height: 400px;
 }
 
-/* Scrollable inner areas */
-.TracksContainer, 
-.SearchResultsWrapper {
-  display: flex;
-  flex-direction: column;
-  flex: 1;            /* fill available vertical space */
-  padding: 20px;
-  overflow-y: auto;   /* scroll if content exceeds */
-  background-color: #181818;
+/* Search bar at bottom */
+.bottom-section {
+  width: 100%;
+  flex: 0;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .top-section {
+    flex-direction: column;
+  }
 }

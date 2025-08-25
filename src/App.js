@@ -55,16 +55,18 @@ function App() {
       <h2>Search songs and manage your playlists</h2>
 
       <div className="main-content">
-        <Playlist
-          token={token}
-          userId={userId}
-          selectedPlaylist={selectedPlaylist}
-          setSelectedPlaylist={setSelectedPlaylist}
-          playlistTracks={playlistTracks}
-          setPlaylistTracks={setPlaylistTracks}
-        />
+        <div className="top-section">
+          <Playlist
+            token={token}
+            userId={userId}
+            selectedPlaylist={selectedPlaylist}
+            setSelectedPlaylist={setSelectedPlaylist}
+            playlistTracks={playlistTracks}
+            setPlaylistTracks={setPlaylistTracks}
+          />
+        </div>
 
-        <div className="search-section">
+        <div className="bottom-section">
           <SearchBar
             token={token}
             onAdd={(track) => {
@@ -78,7 +80,7 @@ function App() {
                 body: JSON.stringify({ uris: [track.uri] }),
               })
                 .then((res) => res.json())
-                .then(() => setPlaylistTracks((prev) => [...prev, track])) // push track directly
+                .then(() => setPlaylistTracks((prev) => [...prev, track]))
                 .catch(console.error);
             }}
           />
