@@ -39,7 +39,7 @@
 
 .SearchBarContainer button:hover {
   background-color: #1ed760;
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 /* 📱 Mobile-first, Desktop tweaks */
