@@ -92,18 +92,18 @@
   margin-bottom: 15px;
 }
 
-.PlaylistContainer::-webkit-scrollbar,
+.PlaylistList::-webkit-scrollbar,
 .TracksContainer::-webkit-scrollbar{
   width: 8px;
 }
 
-.PlaylistContainer::-webkit-scrollbar-thumb,
+.PlaylistList::-webkit-scrollbar-thumb,
 .TracksContainer::-webkit-scrollbar-thumb{
   background-color: #1DB954;
   border-radius: 5px;
 }
 
-.PlaylistContainer::-webkit-scrollbar-track,
+.PlaylistList::-webkit-scrollbar-track,
 .TracksContainer::-webkit-scrollbar-track{
   background-color: #121212;
 }
