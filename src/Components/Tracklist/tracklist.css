@@ -5,9 +5,10 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 400px;
+  flex: 1;             /* fill remaining vertical space */
   overflow-y: auto;
 }
+
 
 .NoTracks {
   color: #b3b3b3;
