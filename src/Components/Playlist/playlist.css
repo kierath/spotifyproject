@@ -1,11 +1,13 @@
 .PlaylistContainer {
   display: flex;
-  height: 100%;
+  flex-direction: row;    /* ensure sidebar + tracks are horizontal */
+  flex: 1;                /* fill parent's height */
+  height: 100%;           /* make it stretch */
   background-color: #121212;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  flex-wrap: wrap; 
 }
+
 
 /* Sidebar for playlists */
 .Sidebar {

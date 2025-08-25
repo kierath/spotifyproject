@@ -113,8 +113,10 @@ body {
 /* Scrollable inner areas */
 .TracksContainer, 
 .SearchResultsWrapper {
-  flex: 1;               /* fill parent height */
   display: flex;
   flex-direction: column;
-  overflow-y: auto;      /* scroll if content exceeds */
+  flex: 1;            /* fill available vertical space */
+  padding: 20px;
+  overflow-y: auto;   /* scroll if content exceeds */
+  background-color: #181818;
 }
