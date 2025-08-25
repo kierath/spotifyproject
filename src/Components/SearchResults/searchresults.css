@@ -1,9 +1,7 @@
-/* Container for the entire search column */
 .SearchResultsWrapper {
-  flex: 1;                      /* equal width with playlist */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  height: 500px;                 /* full viewport height */
   box-sizing: border-box;
   background-color: #121212;
   border-left: 2px solid #1DB954;
@@ -11,18 +9,20 @@
   min-width: 300px;
 }
 
+
 /* Scrollable results area */
 .SearchResultsList {
-  flex: 1;                       /* fills remaining height */
+  flex: 1;
   overflow-y: auto;
   background-color: #181818;
   padding: 12px;
   border-radius: 6px;
+  max-height: 70vh;              /* prevent covering full screen */
 }
 
 /* Scrollbar */
 .SearchResultsList::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 .SearchResultsList::-webkit-scrollbar-thumb {
   background-color: #1DB954;
@@ -38,7 +38,7 @@
   align-items: center;
   justify-content: space-between;
   background: #121212;
-  padding: 10px 14px;
+  padding: 10px;
   margin-bottom: 10px;
   border-radius: 6px;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -50,47 +50,48 @@
   transform: scale(1.02);
 }
 
+/* Thumbnail */
 .songItem img {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 6px;
-  margin-right: 12px;
+  margin-right: 10px;
   object-fit: cover;
 }
 
+/* Song info text */
 .songInfo {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden; /* prevent long names breaking layout */
 }
 
 .songInfo strong {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .songInfo span {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #bbb;
   margin-top: 2px;
 }
 
-.songInfo audio {
-  margin-top: 6px;
-  width: 100%;
-}
-
 /* Add button */
 .AddTrackBtn {
-  font-size: 0.75rem;
-  padding: 6px 10px;
-  margin-left: 12px;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  padding: 6px;
   background-color: #1DB954;
   color: white;
   border: none;
-  border-radius: 50%;  
+  border-radius: 50%;
   cursor: pointer;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,4 +99,13 @@
 
 .AddTrackBtn:hover {
   background-color: #1ed760;
+}
+/* 📱 Mobile: full width, remove border-left */
+@media (max-width: 768px) {
+  .SearchResultsWrapper {
+    border-left: none;
+    border-top: 2px solid #1DB954;
+    min-width: unset;
+    width: 100%;
+  }
 }

@@ -1,7 +1,7 @@
 .TrackList {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -10,5 +10,19 @@
 .NoTracks {
   color: #b3b3b3;
   font-style: italic;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9rem;
 }
 
+/* 📱 Mobile adjustments */
+@media (max-width: 600px) {
+  .TrackList {
+    gap: 12px;
+  }
+
+  .NoTracks {
+    font-size: 1rem;
+    padding: 30px 10px;
+  }
+}
