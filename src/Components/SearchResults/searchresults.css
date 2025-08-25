@@ -9,13 +9,15 @@
   min-width: 300px;
 }
 
+
 /* Scrollable results area */
 .SearchResultsList {
-  flex: 1;               /* fill parent height */
+  flex: 1;
   overflow-y: auto;
   background-color: #181818;
   padding: 12px;
   border-radius: 6px;
+  max-height: 70vh;              /* prevent covering full screen */
 }
 
 /* Scrollbar */
@@ -30,7 +32,7 @@
   background-color: #121212;
 }
 
-/* Song item */
+/* Individual song item */
 .songItem {
   display: flex;
   align-items: center;
@@ -48,6 +50,7 @@
   transform: scale(1.02);
 }
 
+/* Thumbnail */
 .songItem img {
   width: 44px;
   height: 44px;
@@ -56,12 +59,13 @@
   object-fit: cover;
 }
 
+/* Song info text */
 .songInfo {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
+  overflow: hidden; /* prevent long names breaking layout */
 }
 
 .songInfo strong {
@@ -70,13 +74,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .songInfo span {
   font-size: 0.75rem;
   color: #bbb;
   margin-top: 2px;
 }
 
+/* Add button */
 .AddTrackBtn {
   flex-shrink: 0;
   font-size: 0.8rem;
@@ -96,13 +100,12 @@
 .AddTrackBtn:hover {
   background-color: #1ed760;
 }
-
-/* Mobile: full width, remove border-left */
+/* 📱 Mobile: full width, remove border-left */
 @media (max-width: 768px) {
   .SearchResultsWrapper {
     border-left: none;
     border-top: 2px solid #1DB954;
-    width: 100%;
     min-width: unset;
+    width: 100%;
   }
 }
