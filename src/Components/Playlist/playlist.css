@@ -70,6 +70,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   min-width: 0;           /* critical for flex shrink */
+  max-width: 100%;  
 }
 
 /* Tracks container */
