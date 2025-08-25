@@ -1,6 +1,6 @@
 .PlaylistContainer {
   display: flex;
-max-height: 500px;
+  height: 100%;
   background-color: #121212;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -82,11 +82,12 @@ max-height: 500px;
   object-fit: cover;
 }
 
-/* Tracks container */
 .TracksContainer {
-  flex-grow: 1;
-  padding: 15px;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1;            /* fill available space in the main container */
+  padding: 20px;
+  overflow-y: hidden; /* prevent double scroll */
   background-color: #181818;
 }
 
