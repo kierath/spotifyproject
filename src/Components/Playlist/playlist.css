@@ -94,12 +94,12 @@
 }
 
 .create-playlist button {
-  font-size: 1rem !important;
+  font-size: 0.8rem !important;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .create-playlist input {
-  font-size: 1rem !important;
+  font-size: 0.8rem !important;
 }
 
 .PlaylistList::-webkit-scrollbar,
