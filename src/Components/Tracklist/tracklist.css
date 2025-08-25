@@ -17,6 +17,21 @@
   font-size: 0.9rem;
 }
 
+/* Scrollbars */
+.TrackList::-webkit-scrollbar{
+  width: 8px;
+}
+
+.TrackList::-webkit-scrollbar-thumb{
+  background-color: #1DB954;
+  border-radius: 5px;
+}
+
+.TrackList::-webkit-scrollbar-track {
+  background-color: #121212;
+}
+
+
 /* 📱 Mobile adjustments */
 @media (max-width: 600px) {
   .TrackList {
