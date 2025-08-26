@@ -12,7 +12,7 @@ function Track({ track, onRemove }) {
         <span>{track.artists.map(a => a.name).join(', ')}</span>
       </div>
       <button onClick={() => onRemove(track.uri)} className="RemoveTrackBtn">
-        Remove
+        -
       </button>
     </li>
   );
