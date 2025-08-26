@@ -49,11 +49,6 @@
   min-width: 0; 
 }
 
-.songItem:hover {
-  background: #1DB954;
-  color: #121212;
-}
-
 /* Thumbnail */
 .songItem img {
   width: 44px;
