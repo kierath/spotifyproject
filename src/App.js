@@ -42,7 +42,7 @@ function App() {
       <div className="spotify-app" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <h1>Jamming</h1>
         <h2>Jam to your favourites - log in with Spotify, search any artist, and remix your playlists.</h2>
-        <a href={loginUrl}>
+        <a href={loginUrl} className="spotify-login-button">
           <button>Login to Spotify</button>
         </a>
       </div>
