@@ -29,6 +29,7 @@ function SearchBar({ token, onAdd }) {
 
   return (
   <div className="SearchBarContainer">
+    <h2>Which song do you want to add?</h2>
     <div className="SearchControls">
       <input
         type="text"

@@ -5,6 +5,12 @@
   flex-direction: column;   /* stack controls above results */
   gap: 20px;
   box-sizing: border-box;
+  background-color: #181818;
+}
+
+.SearchBarContainer h2 {
+  color: #1DB954;
+  margin-bottom: 15px;
 }
 
 .SearchControls {
