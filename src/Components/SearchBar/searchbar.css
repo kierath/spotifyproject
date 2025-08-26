@@ -7,19 +7,20 @@
   box-sizing: border-box;
   background-color: #181818;
   margin: 5px 0 10px 0;
+  padding: 20px;
 }
 
 .SearchBarContainer h2 {
   color: #1DB954;
+  margin: 0;
 }
 
 .SearchControls {
   display: flex;
-  gap: 10%;
+  gap: 10px;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  margin: 0 15px;
 }
 
 .SearchControls input {
