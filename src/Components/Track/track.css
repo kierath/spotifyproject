@@ -39,6 +39,7 @@
   text-overflow: ellipsis;
 }
 
+.AddTrackBtn,
 .RemoveTrackBtn {
   display: flex;
   align-items: center;
@@ -49,13 +50,14 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  width: 30px;  
-  height: 40px;    
-  padding: 0;     
-  flex-shrink: 1;  
+  width: 30px;      
+  height: 30px;     
+  padding: 0;
+  flex-shrink: 0;   
   box-sizing: border-box;
 }
 
+.AddTrackBtn:hover,
 .RemoveTrackBtn:hover {
   background-color: #1ed760;
   transform: scale(1.03);
@@ -80,8 +82,10 @@
     font-size: 0.7rem;
   }
 
-  .TrackItem button {
-    font-size: 10px !important;
-    padding: 4px 6px;
+  .AddTrackBtn,
+  .RemoveTrackBtn {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
   }
 }
