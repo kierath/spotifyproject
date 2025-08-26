@@ -15,9 +15,14 @@
   flex: 1;
   overflow-y: auto;
   background-color: #181818;
-  padding: 12px;
   border-radius: 6px;
   max-height: 70vh;              /* prevent covering full screen */
+}
+
+.SearchResultsList ul{
+  list-style: none;
+  padding: 0px;
+  margin: 0;  
 }
 
 /* Scrollbar */
