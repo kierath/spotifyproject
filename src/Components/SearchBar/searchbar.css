@@ -18,7 +18,7 @@
 .SearchControls {
   display: flex;
   gap: 10px;
-  justify-content: flex-start;
+  justify-content: center;    /* centers the flex items horizontally */
   align-items: center;
   width: 100%;
 }
