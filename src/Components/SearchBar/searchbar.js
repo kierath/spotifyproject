@@ -28,21 +28,22 @@ function SearchBar({ token, onAdd }) {
   };
 
   return (
-    <div className="SearchBarContainer">
-      <div className="SearchControls">
-        <input
-          type="text"
-          placeholder="Search a song..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <button onClick={search}>Search</button>
-        <div className="ResultsSection">
-          <SearchResults results={results} onAdd={onAdd} />
-        </div>
-      </div>
+  <div className="SearchBarContainer">
+    <div className="SearchControls">
+      <input
+        type="text"
+        placeholder="Search a song..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+      <button onClick={search}>Search</button>
     </div>
-  );
+
+    <div className="ResultsSection">
+      <SearchResults results={results} onAdd={onAdd} />
+    </div>
+  </div>
+);
 }
 
 export default SearchBar;
