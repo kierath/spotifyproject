@@ -76,11 +76,10 @@ body {
 /* Search bar at bottom */
 .bottom-section {
   width: 100%;
-  flex: 0;
-  display: flex;
+  flex: 1;            /* allow it to grow */
+  display: flex;      /* center its content */
   justify-content: center;
-  padding: 10px 20px;
-  box-sizing: border-box;
+  align-items: center;
 }
 
 /* Mobile adjustments */
