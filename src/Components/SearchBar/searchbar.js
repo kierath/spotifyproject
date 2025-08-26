@@ -37,7 +37,7 @@ function SearchBar({ token, onAdd }) {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <button onClick={search}>Search</button>
+      <button className = "search-button" onClick={search}>Search</button>
     </div>
     <div className="ResultsSection">
       <SearchResults results={results} onAdd={onAdd} />
