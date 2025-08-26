@@ -20,7 +20,7 @@
 .TrackInfo {
   display: flex;
   flex-direction: column;
-  flex: 0 1 auto;             
+  flex: 1;          
   overflow: hidden;
 }
 
@@ -39,7 +39,6 @@
   text-overflow: ellipsis;
 }
 
-.AddTrackBtn,
 .RemoveTrackBtn {
   display: flex;
   align-items: center;
@@ -57,7 +56,6 @@
   box-sizing: border-box;
 }
 
-.AddTrackBtn:hover,
 .RemoveTrackBtn:hover {
   background-color: #1ed760;
   transform: scale(1.03);
