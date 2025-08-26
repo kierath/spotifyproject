@@ -34,27 +34,24 @@ body {
   margin: 0;
 }
 
-/* Spotify login button styling */
-.spotify-login-button {
-  display: inline-block;           /* make it behave like a button */
-  text-decoration: none;           /* remove underline from <a> */
-  padding: 12px 24px;              /* same padding as other buttons */
-  background-color: #1DB954;       /* Spotify green */
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
+.spotify-app button {
+  flex: 0 0 30%;
+  padding: 12px;
+  background-color: #1DB954;
+  color: #121212;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
   transition: all 0.2s ease;
+  height: 44px; 
 }
 
-.spotify-login-button:hover {
+.spotify-app button:hover {
   background-color: #1ed760;
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
-
 
 /* Main content layout */
 .main-content {
