@@ -52,7 +52,6 @@
 .songItem:hover {
   background: #1DB954;
   color: #121212;
-  transform: scale(1.02);
 }
 
 /* Thumbnail */
