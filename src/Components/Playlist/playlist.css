@@ -109,7 +109,7 @@
   box-sizing: border-box;    
   height: 44px;       
 }
-.create-playlist button {
+.create-playlist-button {
   flex: 0 0 30%;             
   padding: 12px 0;
   background-color: #1DB954;
