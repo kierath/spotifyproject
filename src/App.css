@@ -73,14 +73,15 @@ body {
   min-height: 400px;
 }
 
-/* Search bar at bottom */
 .bottom-section {
   width: 100%;
-  flex: 1;            /* allow it to grow */
-  display: flex;      /* center its content */
-  justify-content: center;
-  align-items: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* stack input above results */
+  align-items: stretch;   /* allow children to stretch full width */
+  gap: 20px;              /* space between input and results */
 }
+
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
