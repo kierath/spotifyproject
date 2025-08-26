@@ -56,7 +56,6 @@
   transform: scale(1.03);
 }
 
-/* results section takes full width */
 .ResultsSection {
   flex: 1;
   width: 100%;

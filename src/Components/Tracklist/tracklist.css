@@ -5,11 +5,10 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  flex: 1;             /* fill remaining vertical space */
+  flex: 1;      
   overflow-y: auto;
   overflow-x: hidden;
 }
-
 
 .NoTracks {
   color: #b3b3b3;
@@ -19,7 +18,6 @@
   font-size: 0.9rem;
 }
 
-/* Scrollbars */
 .TrackList::-webkit-scrollbar{
   width: 8px;
 }
@@ -33,8 +31,6 @@
   background-color: #121212;
 }
 
-
-/* 📱 Mobile adjustments */
 @media (max-width: 600px) {
   .TrackList {
     gap: 12px;

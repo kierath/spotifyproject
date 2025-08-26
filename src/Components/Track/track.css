@@ -20,13 +20,13 @@
   height: 48px;
   object-fit: cover;
   border-radius: 6px;
-  flex-shrink: 0; /* keeps album art from squishing */
+  flex-shrink: 0; 
 }
 
 .TrackInfo {
   display: flex;
   flex-direction: column;
-  flex: 1;              /* allows text to shrink/grow properly */
+  flex: 1;             
   overflow: hidden;
 }
 
@@ -34,7 +34,7 @@
   font-size: 0.95rem;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* truncates long names */
+  text-overflow: ellipsis; 
 }
 
 .TrackInfo span {
@@ -54,7 +54,6 @@
   border-radius: 4px;
   cursor: pointer;
   flex-shrink: 0;
-  transition: background 0.2s ease;
 }
 
 .TrackItem button:hover {

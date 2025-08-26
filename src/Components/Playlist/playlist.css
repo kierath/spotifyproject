@@ -11,7 +11,6 @@
   box-sizing: border-box;
 }
 
-/* Sidebar */
 .Sidebar {
   width: 400px;
   flex-shrink: 0;
@@ -66,14 +65,13 @@
 }
 
 .PlaylistItem div {
-  overflow: hidden;       /* prevents long text from overflowing */
+  overflow: hidden;       
   text-overflow: ellipsis;
   white-space: nowrap;
-  min-width: 0;           /* critical for flex shrink */
+  min-width: 0;           
   max-width: 100%;  
 }
 
-/* Tracks container */
 .TracksContainer {
   flex: 1;
   display: flex;
@@ -141,7 +139,6 @@
   background-color: #121212;
 }
 
-/* Mobile adjustments */
 @media (max-width: 768px) {
   .PlaylistContainer {
     flex-direction: column;
