@@ -123,6 +123,11 @@
   height: 44px;
 }
 
+.create-playlist-button:hover {
+  background-color: #1ed760;
+  transform: scale(1.03);
+}
+
 .PlaylistList::-webkit-scrollbar,
 .TracksContainer::-webkit-scrollbar{
   width: 8px;

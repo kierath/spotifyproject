@@ -26,7 +26,7 @@
 }
 
 .SearchControls input {
-  flex: 0 0 60%;
+  flex: 1;
   padding: 12px;
   border: 1px solid #1DB954;
   border-radius: 6px;
@@ -38,20 +38,25 @@
 }
 
 .search-button {
-  flex: 0 0 30%;  
+  flex: 1;
   padding: 12px 0; 
   background-color: #1DB954;
   color: #121212;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
-  width: 100%;     
+  cursor: pointer;   
   height: 44px;    
   box-sizing: border-box;
   font-weight: bold;
   font-size: 1rem;
 
 }
+
+.search-button:hover {
+  background-color: #1ed760;
+  transform: scale(1.03);
+}
+
 .RemoveTrackBtn {
   display: flex;
   align-items: center;
