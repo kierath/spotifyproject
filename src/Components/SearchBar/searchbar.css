@@ -32,6 +32,7 @@
   color: #000;
   font-size: 1rem;
   box-sizing: border-box;
+  height: 44px; 
 }
 
 .SearchControls button {
@@ -45,6 +46,7 @@
   font-weight: bold;
   font-size: 1rem;
   transition: all 0.2s ease;
+  height: 44px; 
 }
 
 .SearchControls button:hover {

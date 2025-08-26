@@ -95,7 +95,7 @@
 
 .create-playlist {
   display: flex;            
-  gap: 10px;                
+  gap: 15px;                
   align-items: center;          
   width: 100%; 
   margin: 0;  
