@@ -9,12 +9,6 @@
   cursor: default;
 }
 
-.TrackItem:hover {
-  background-color: #1DB954;
-  color: #121212;
-  transform: scale(1.02);
-}
-
 .TrackItem img {
   width: 48px;
   height: 48px;
@@ -45,7 +39,6 @@
   text-overflow: ellipsis;
 }
 
-/* Track buttons (Add / Remove) */
 .RemoveTrackBtn {
   display: flex;
   align-items: center;
@@ -67,7 +60,6 @@
   background-color: #1ed760;
   transform: scale(1.03);
 }
-
 
 @media (max-width: 768px) {
   .TrackItem {

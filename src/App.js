@@ -43,7 +43,7 @@ function App() {
         <h1>Jamming</h1>
         <h2>Jam to your favourites - log in with Spotify, search any artist, and remix your playlists.</h2>
         <a href={loginUrl} >
-          <button>Login to Spotify</button>
+          <button className="spotify-login-button">Login to Spotify</button>
         </a>
       </div>
     );

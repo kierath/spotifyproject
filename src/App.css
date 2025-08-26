@@ -34,7 +34,7 @@ body {
   margin: 0;
 }
 
-.spotify-app button {
+.spotify-login-button {
   flex: 0 0 30%;
   padding: 12px;
   background-color: #1DB954;
@@ -48,7 +48,7 @@ body {
   height: 44px; 
 }
 
-.spotify-app button:hover {
+.spotify-login-button:hover {
   background-color: #1ed760;
   transform: scale(1.03);
 }
