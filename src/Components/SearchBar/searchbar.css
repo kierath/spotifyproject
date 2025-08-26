@@ -2,8 +2,9 @@
   flex: 1;
   width: 100%;
   display: flex;
-  flex-direction: column; /* stack search controls above results */
+  flex-direction: column;   /* stack controls above results */
   gap: 20px;
+  box-sizing: border-box;
 }
 
 .SearchControls {
@@ -14,32 +15,19 @@
   width: 100%;
 }
 
-.ResultsSection {
+.SearchControls input {
   flex: 1;
-  width: 100%;          /* stretch across */
-  display: flex;
-  flex-wrap: wrap;       /* songs can flow */
-  gap: 15px;             /* spacing between songs */
-  justify-content: flex-start;
-}
-
-/* Search input */
-.SearchBarContainer input {
-  width: 100%;
   padding: 12px;
   border: 1px solid #1DB954;
   border-radius: 6px;
   background-color: #fff;
   color: #000;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1rem;
   box-sizing: border-box;
 }
 
-/* Search button */
-.SearchBarContainer button {
-  width: 100%;              /* full width on mobile */
-  padding: 12px;
+.SearchControls button {
+  padding: 12px 20px;
   background-color: #1DB954;
   color: #121212;
   border: none;
@@ -50,24 +38,14 @@
   transition: all 0.2s ease;
 }
 
-.SearchBarContainer button:hover {
+.SearchControls button:hover {
   background-color: #1ed760;
   transform: scale(1.03);
 }
 
-/* 📱 Mobile-first, Desktop tweaks */
-@media (min-width: 600px) {
-  .SearchBarContainer {
-    flex-direction: row;   /* side by side on bigger screens */
-    gap: 10px;
-  }
-
-  .SearchBarContainer input {
-    flex: 1;
-  }
-
-  .SearchBarContainer button {
-    width: auto;           /* shrink to fit */
-    padding: 12px 20px;
-  }
+/* results section takes full width */
+.ResultsSection {
+  flex: 1;
+  width: 100%;
+  display: flex;
 }
