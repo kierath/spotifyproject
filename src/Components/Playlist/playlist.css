@@ -97,6 +97,7 @@
   align-items: center;          
   width: 100%; 
   margin: 0;  
+  padding-bottom: 10px;
 }
 .create-playlist input {
   flex: 1;         

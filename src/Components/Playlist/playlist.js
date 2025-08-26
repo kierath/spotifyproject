@@ -81,7 +81,7 @@ function Playlist({ token, userId, selectedPlaylist, setSelectedPlaylist, playli
       <div className="Sidebar">
         <h2>Your Playlists</h2>
         <div className="create-playlist">
-          <input type="text" placeholder="Enter New Playlist Name" value={newPlaylistName} onChange={(e) => setNewPlaylistName(e.target.value)} />
+          <input type="text" placeholder="New Playlist Name" value={newPlaylistName} onChange={(e) => setNewPlaylistName(e.target.value)} />
           <button className="create-playlist-button" onClick={handleCreatePlaylist} disabled={!newPlaylistName.trim()}>Add</button>
         </div>
         <div className="PlaylistList">
