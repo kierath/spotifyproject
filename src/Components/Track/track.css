@@ -54,6 +54,7 @@
   border-radius: 4px;
   cursor: pointer;
   flex-shrink: 0;
+  width: 20px;
 }
 
 .TrackItem button:hover {
