@@ -36,7 +36,6 @@ body {
 
 .spotify-app button {
   flex: 0 0 30%;
-  margin-top: 20px;
   padding: 12px;
   background-color: #1DB954;
   color: #121212;
