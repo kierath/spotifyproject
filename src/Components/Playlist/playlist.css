@@ -7,7 +7,7 @@
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   flex-wrap: nowrap;
-  overflow-x: hidden;   /* prevents horizontal scroll */
+  overflow-x: hidden;   
   box-sizing: border-box;
 }
 
@@ -48,7 +48,7 @@
   background-color: #1a1a1a;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 0;           /* allows flex child to shrink */
+  min-width: 0;           
 }
 
 .PlaylistItem:hover {
@@ -80,12 +80,12 @@
   flex-direction: column;
   padding: 20px;
   max-height: 500px;
-  overflow-x: hidden;   /* prevents horizontal scroll */
+  overflow-x: hidden;   
   overflow-y: auto;
   background-color: #181818;
   box-sizing: border-box;
   width:auto;
-  min-width: 0;         /* critical to allow shrinking */
+  min-width: 0;        
 }
 
 .TracksContainer h3 {
@@ -93,21 +93,18 @@
   margin-bottom: 15px;
 }
 
-.create-playlist button {
-  font-size: 1.0rem !important;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+.create-playlist {
+  display: flex;            
+  gap: 10px;                
+  align-items: center;      
+  margin-bottom: 15px;      
 }
-
 .create-playlist input {
-  font-size: 1.0rem !important;
-  width: 50%;
-  padding: 12px;
-  border: 1px solid #1DB954;
-  border-radius: 6px;
-  background-color: #fff;
-  color: #000;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-sizing: border-box;
+  flex: 1;                  
+  min-width: 0;           
+}
+.create-playlist button {
+  flex: 0 0 auto;           
 }
 
 .PlaylistList::-webkit-scrollbar,
