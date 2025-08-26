@@ -80,7 +80,7 @@
 .AddTrackBtn {
   flex-shrink: 0;
   font-size: 0.8rem;
-  padding: 6px;
+  padding: 1px;
   background-color: #1DB954;
   color: white;
   border: none;
