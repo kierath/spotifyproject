@@ -77,9 +77,10 @@ body {
   width: 100%;
   flex: 1;
   display: flex;
-  flex-direction: column; /* stack input above results */
-  align-items: stretch;   /* allow children to stretch full width */
-  gap: 20px;              /* space between input and results */
+  flex-direction: column;   /* stack children */
+  align-items: stretch;     /* children take full width */
+  justify-content: flex-start; /* results start at the top */
+  gap: 20px;
 }
 
 

@@ -38,7 +38,6 @@ function SearchBar({ token, onAdd }) {
       />
       <button onClick={search}>Search</button>
     </div>
-
     <div className="ResultsSection">
       <SearchResults results={results} onAdd={onAdd} />
     </div>
